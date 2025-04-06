@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Material de revisão, Chagas.</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./home.css">
+    
+    <div id="profile">
+        <h2 id="CENTRALDIV" class="typing">CHAGAS</h2> 
+        <hr id="hr1">
+        <img src="https://r2.guns.lol/0bdfc95e-c518-4229-9d2f-3a2280c545ca.jpg" alt="" width="200" height="200">
+        <hr id="hr2">
+        <audio id="meuAudio">
+            <source src="./good-night-lofi-cozy-chill-music-160166.mp3" type="audio/mpeg">
+        </audio>
+        <h3 id="Clickhere">
+            <button id="textoBotao">Quem é Chagas?</button>
+        </h3>
+    </div>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* Tela de bloqueio com blur intenso */
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 9999;
+        }
+
+        /* Neve */
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            background: white;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            opacity: 0.8;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+
+        /* Botão com aparência de texto */
+        #textoBotao {
+            background: none;
+            border: none;
+            font-size: 18px;
+            font-family: 'Barlow', sans-serif;
+            color: white;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        #textoBotao:hover {
+            opacity: 0.7;
+        }
+
+        /* Estilo para o efeito de digitação */
+        .typing-effect::after {
+            content: "|";
+            display: inline-block;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Tela de bloqueio -->
+    <div id="overlay">Clique em qualquer lugar para continuar</div>
+
+    <script>
+        function tocarLoop() {
+            const audio = document.getElementById("meuAudio");
+            audio.volume = 0.2;
+            audio.currentTime = 0;
+            audio.play();
+
+            setTimeout(() => {
+                audio.pause();
+                tocarLoop();
+            }, 20000);
+        }
+
+        function criarNeve() {
+            for (let i = 0; i < 50; i++) {
+                let snowflake = document.createElement("div");
+                snowflake.classList.add("snowflake");
+                document.body.appendChild(snowflake);
+
+                snowflake.style.left = Math.random() * window.innerWidth + "px";
+                snowflake.style.animationDuration = (Math.random() * 3 + 2) + "s";
+                let size = Math.random() * 5 + 2 + "px";
+                snowflake.style.width = size;
+                snowflake.style.height = size;
+            }
+        }
+
+        document.addEventListener("click", () => {
+            document.getElementById("overlay").style.display = "none";
+            tocarLoop();
+            criarNeve();
+        }, { once: true });
+
+        function digitarTexto(texto, elemento) {
+            let i = 0;
+            elemento.textContent = ""; // Limpa o conteúdo antes de começar
+            elemento.style.display = "block";
+            elemento.classList.add("typing-effect");
+
+            function escrever() {
+                if (i < texto.length) {
+                    elemento.textContent += texto[i];
+                    i++;
+                    setTimeout(escrever, 50);
+                } else {
+                    elemento.classList.remove("typing-effect");
+                }
+            }
+            escrever();
+        }
+
+        document.getElementById("textoBotao").addEventListener("click", function() {
+            let botao = this;
+            let novoTexto = "Prazer, sou um autodidata que passou em 20º lugar nos correios, fiquei no CR para a prova da caixa e estou disponibilizando gratuitamente meu material de revisão, bem vindos.";
+
+            // Cria um novo elemento <p> para substituir o botão
+            let novoElemento = document.createElement("p");
+            novoElemento.style.fontSize = "18px";
+            novoElemento.style.fontFamily = "'Barlow', sans-serif";
+            novoElemento.style.color = "white";
+
+            // Substitui o botão pelo novo parágrafo
+            botao.parentNode.replaceChild(novoElemento, botao);
+
+            // Aplica o efeito de digitação
+            digitarTexto(novoTexto, novoElemento);
+        });
+    </script>
+
+</body>
+</html>

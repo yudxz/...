@@ -1,0 +1,49 @@
+
+
+html{
+
+    background-image: url(https://cdna.artstation.com/p/assets/images/images/013/099/998/original/filipe-dilly-midnight-train.gif?1538048915);
+    color: #FFFFFF; 
+    font-family: "Barlow", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+#profile {
+    background-color: #351845;
+    padding-bottom: 30px; /* Diminuído de 100px para 30px */
+    font-family: "Barlow", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    top: 100px; /* Diminuído de 200px para 100px */
+    color: #7700ff;
+    min-height: 200px; /* Garante que não fique muito pequeno */
+}
+.typing{
+font-size: 24px;
+border-right: 2px solid black; /* Cursor piscando */
+white-space: nowrap; /* Evita quebra de linha */
+overflow: hidden; /* Esconde o texto que ainda não apareceu */
+width: 0; /* Começa sem largura */
+animation: typing 3s steps(12, end) forwards, blink 0.6s infinite;  
+}
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+#hr2, #hr1{
+ border: 2px solid rgba(153, 0, 255, 0.452);
+}
