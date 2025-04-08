@@ -17,6 +17,13 @@
         <h3 id="Clickhere">
             <button id="textoBotao">Quem é Chagas?</button>
         </h3>
+        <h4 id="Revision">
+            <!-- Botão com a classe link1 agora redireciona -->
+            <button id="link1" class="link1">
+                <a href="https://revisionfolderpage.netlify.app/"></a>
+                Materiais de revisão.
+            </button>
+        </h4>
     </div>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -89,12 +96,50 @@
         @keyframes blink {
             50% { opacity: 0; }
         }
+
+        /* Estilo da contagem regressiva */
+        #contador {
+            font-size: 30px;
+            color: white;
+            font-family: 'Barlow', sans-serif;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Animação de piscar */
+        @keyframes piscar {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* Aplica o efeito de piscar no botão "Materiais de revisão" */
+        #link1 {
+            font-size: 18px;
+            font-family: 'Barlow', sans-serif;
+        
+            cursor: pointer;
+            text-decoration: underline;
+            animation: piscar 1s infinite; /* Animação de piscar */
+        }
+
+        /* Para a animação de piscar quando o mouse está sobre o botão */
+        #link1:hover {
+            animation: none; /* Remove a animação ao passar o mouse */
+            opacity: 1; /* Garante que o texto esteja completamente visível */
+        }
     </style>
 </head>
 <body>
 
     <!-- Tela de bloqueio -->
     <div id="overlay">Clique em qualquer lugar para continuar</div>
+
+    <!-- Contagem regressiva -->
+    <div id="contador" style="display: none;">3</div>
 
     <script>
         function tocarLoop() {
@@ -127,6 +172,7 @@
             document.getElementById("overlay").style.display = "none";
             tocarLoop();
             criarNeve();
+            iniciarContagemRegressiva(); // Inicia a contagem após o clique
         }, { once: true });
 
         function digitarTexto(texto, elemento) {
@@ -163,6 +209,30 @@
             // Aplica o efeito de digitação
             digitarTexto(novoTexto, novoElemento);
         });
+
+        // Função para redirecionar ao clicar no botão "link1"
+        document.getElementById("link1").addEventListener("click", function() {
+            window.location.href = './revision/folder.html'; // Redireciona para o arquivo desejado
+        });
+
+        // Função para iniciar a contagem regressiva após o clique
+        function iniciarContagemRegressiva() {
+            let contador = 3; // tempo inicial
+            let contadorDisplay = document.getElementById("contador");
+
+            // Torna o contador visível
+            contadorDisplay.style.display = "block";
+
+            let intervalo = setInterval(() => {
+                contador--; // decrementa o tempo
+                contadorDisplay.textContent = contador; // atualiza o contador na tela
+
+                if (contador <= 0) {
+                    clearInterval(intervalo); // limpa o intervalo quando chegar a 0
+                    document.getElementById("textoBotao").click(); // ativa o botão automaticamente
+                }
+            }, 1000); // a cada 1 segundo
+        }
     </script>
 
 </body>

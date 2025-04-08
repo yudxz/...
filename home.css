@@ -47,3 +47,22 @@ animation: typing 3s steps(12, end) forwards, blink 0.6s infinite;
 #hr2, #hr1{
  border: 2px solid rgba(153, 0, 255, 0.452);
 }
+#link1 {
+    background: none;
+    border: none;
+    color:aqua;
+    font-size: 18px;
+    font-family: 'Barlow', sans-serif;
+    cursor: pointer;
+    text-decoration: underline;
+    display: inline;
+    animation: piscar 1s infinite; /* Animação de piscar */
+}
+@keyframes piscar {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
