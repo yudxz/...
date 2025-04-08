@@ -2,13 +2,14 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%; /* Garantir que o body ocupe toda a altura da tela */
-    overflow: hidden;
+ 
 
 }
 
 html {
 background-image: url(./deo182h-4d8f64bf-0b0c-4f9b-8d13-a57c8d144ce1.gif);
-    font-family: "Roboto", sans-serif;
+background-position: absolute;  
+font-family: "Roboto", sans-serif;
     color: white;
     margin: 0;
     padding: 0;
