@@ -28,11 +28,13 @@
     </div>
 
     <hr id="centralhr">
+
+    <!-- Botão HOME (corrigido) -->
     <div id="homediv">
-        <button id="buttondhomediv">
-            <a href="./home.html"></a>
-        <h1 id="h1homediv">HOME</h1>
-    </button>
+        <!-- Transformando o link em um botão -->
+        <a href="./home.html" id="home-button">
+            <h1 id="h1homediv">HOME</h1>
+        </a>
     </div>
 
     <div id="CENTRALDIV">
@@ -68,106 +70,90 @@
     <script>
         // Função que é chamada ao clicar no botão de detalhes
         function mostrarDetalhes() {
-            // Substitui o botão "Detalhes" pelo texto digitado
             const texto = "Esse arquivo está compactado e os materiais de revisão estão em docx, \n portanto você vai precisar de um leitor de docx, ou o Microsoft Word para executar os materiais de revisão.";
             let index = 0; // Índice para rastrear qual letra deve ser exibida
             const detalhesDiv = document.getElementById("detalhes"); // Obtém a div onde o botão "Detalhes" está
             
-            // Limpa a div "detalhes" e adiciona o texto com a classe "detalhesh4"
             detalhesDiv.innerHTML = '<h2 class="detalhesh4"></h2>';
 
             const textoElemento = detalhesDiv.querySelector(".detalhesh4");
 
-            // Função para adicionar as letras uma a uma
             function digitarTexto() {
                 if (index < texto.length) {
-                    // Verifica se é uma quebra de linha (nova linha)
                     if (texto.charAt(index) === '\n') {
-                        textoElemento.innerHTML += "<br>"; // Adiciona uma quebra de linha no HTML
+                        textoElemento.innerHTML += "<br>";
                     } else {
-                        textoElemento.innerHTML += texto.charAt(index); // Adiciona a letra ao conteúdo
+                        textoElemento.innerHTML += texto.charAt(index);
                     }
-                    index++; // Incrementa o índice para a próxima letra
-                    setTimeout(digitarTexto, 100); // Chama a função novamente após 100ms
+                    index++;
+                    setTimeout(digitarTexto, 100);
                 } else {
-                    // Quando terminar a digitação, para o áudio
                     document.getElementById("typing").pause();
                 }
             }
 
-            // Começa a digitar o texto
             digitarTexto();
 
-            // Inicia o áudio de digitação com volume de 20% (0.2)
             const typingAudio = document.getElementById("typing");
-            typingAudio.volume = 0.2; // Define o volume para 20%
-            typingAudio.play(); // Toca o áudio de digitação
+            typingAudio.volume = 0.2;
+            typingAudio.play();
 
-            // Quando o áudio terminar, reinicia
             typingAudio.onended = function() {
-                typingAudio.currentTime = 0; // Volta ao início
-                typingAudio.play(); // Reinicia o áudio
+                typingAudio.currentTime = 0;
+                typingAudio.play();
             };
 
-            // Duração total do áudio de digitação será baseada no tempo de digitação
-            const duration = texto.length * 100; // Tempo total de digitação (100ms por letra)
-            typingAudio.currentTime = 0; // Garante que o áudio comece do início
-            typingAudio.play(); // Toca o áudio
+            const duration = texto.length * 100;
+            typingAudio.currentTime = 0;
+            typingAudio.play();
 
-            // Define a duração do áudio de digitação para o tempo da digitação
             setTimeout(() => {
-                typingAudio.pause(); // Para o áudio após o término da digitação
+                typingAudio.pause();
             }, duration);
         }
 
         // Variáveis do áudio de fundo
         const audio = document.getElementById("background-audio");
-        let volumeLevel = 0.1; // Volume inicial baixo
-        let isPlaying = false; // Para controlar se o áudio está sendo tocado ou não
+        let volumeLevel = 0.1;
+        let isPlaying = false;
 
-        // Função para atualizar o contador de volume
         function updateVolumeCounter() {
             const volumeCounter = document.getElementById("volume-counter").querySelector("h2");
-            volumeCounter.textContent = `Volume: ${Math.round(volumeLevel * 100)}%`; // Exibe o volume como uma porcentagem
+            volumeCounter.textContent = `Volume: ${Math.round(volumeLevel * 100)}%`;
         }
 
-        // Função para tocar o áudio de fundo e configurar o volume gradualmente
         function playAudio() {
-            if (isPlaying) return; // Se o áudio já estiver tocando, não faz nada
+            if (isPlaying) return;
             isPlaying = true;
-            audio.play(); // Inicia o áudio de fundo
+            audio.play();
 
-            // Gradualmente aumenta o volume de 0.1 para 1 (volume máximo)
             let volumeInterval = setInterval(() => {
                 if (volumeLevel < 1) {
-                    volumeLevel += 0.01; // Aumenta o volume a cada intervalo
+                    volumeLevel += 0.01;
                     audio.volume = volumeLevel;
-                    updateVolumeCounter(); // Atualiza o contador de volume
+                    updateVolumeCounter();
                 } else {
-                    volumeLevel = 1;  // Garante que o volume chegue a 100%
+                    volumeLevel = 1;
                     audio.volume = volumeLevel;
-                    updateVolumeCounter(); // Atualiza o contador de volume para 100%
-                    clearInterval(volumeInterval); // Quando o volume atingir 1, para o aumento
+                    updateVolumeCounter();
+                    clearInterval(volumeInterval);
                 }
-            }, 100); // A cada 100ms o volume aumenta
+            }, 100);
         }
 
-        // Faz o áudio de fundo reiniciar após 20 segundos sem resetar o volume
         function resetAudio() {
             setInterval(() => {
-                audio.currentTime = 0; // Reinicia o áudio de fundo
-                volumeLevel = 0.1; // Reseta o volume para 10%
-                updateVolumeCounter(); // Atualiza o contador de volume para 10%
-                playAudio(); // Toca novamente
-            }, 20000); // 20 segundos
+                audio.currentTime = 0;
+                volumeLevel = 0.1;
+                updateVolumeCounter();
+                playAudio();
+            }, 20000);
         }
 
-        // Inicia o áudio de fundo quando o usuário clica em qualquer lugar da página
         document.body.addEventListener("click", function() {
             playAudio();
             resetAudio();
 
-            // Remove o blur e a mensagem quando o usuário clicar
             document.getElementById("blur-overlay").style.display = "none";
         });
     </script>
