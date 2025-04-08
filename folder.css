@@ -1,0 +1,161 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Garantir que o body ocupe toda a altura da tela */
+    overflow: hidden;
+
+}
+
+html {
+background-image: url(./deo182h-4d8f64bf-0b0c-4f9b-8d13-a57c8d144ce1.gif);
+    font-family: "Roboto", sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Garante que o html ocupe toda a altura da página */
+}
+#blur-overlay {
+    position: fixed; /* Fixa o overlay na tela */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: blue; /* Fundo semi-transparente */
+    backdrop-filter: blur(10px); /* Aplica o blur */
+    display: flex;
+    justify-content: center; /* Centraliza a mensagem */
+    align-items: center; /* Centraliza a mensagem */
+    z-index: 1000; /* Garante que fique acima de outros conteúdos */
+    background: none;
+}
+
+#message {
+    font-size: 24px;
+    color: white;
+    
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+#volume-counter #margin0{
+   margin: 7px;
+   text-align: right;
+  
+}
+/* Estilizando o botão */
+#detalhesbutton {
+    background: none;               /* Sem fundo */
+    border: none;                   /* Sem borda */
+    padding: 0;                     /* Sem padding */
+    cursor: pointer;               /* Cursor de clique */
+    font-family: inherit;           /* Herda a fonte do pai */
+    display: inline-block;          /* Exibe como bloco em linha */
+    text-align: left;               /* Alinha o texto à esquerda */
+    border-bottom: 2px solid transparent; /* Borda invisível inicialmente */
+    transition: border-color 0.3s;  /* Suaviza a transição da borda */
+}
+
+/* Estilos para o texto dentro do botão */
+#detalhesh4 {
+    margin: 0;                      /* Remove a margem do <h4> */
+    font-size: 30px;                /* Tamanho da fonte desejado */
+    color: white;                    /* Cor do texto */
+    font-weight: bold;              /* Texto em negrito */
+    text-decoration: none;          /* Remove o sublinhado do texto */
+}
+
+
+/* Efeito de hover para o botão */
+
+#buttondhomediv:hover #h1homediv {
+
+    color: #007BFF;                  /* Cor do texto no hover */
+    text-decoration: underline;       /* Sublinha o texto */;
+}
+#buttondhomediv{
+    margin: 0;
+    color: white;
+    background: none;               /* Sem fundo */
+    border: none;                   /* Sem borda */
+    padding: 0;                     /* Sem padding */
+    cursor: pointer;               /* Cursor de clique */
+    font-family: inherit;           /* Herda a fonte do pai */
+    display: inline-block;          /* Exibe como bloco em linha */
+    text-align: left;               /* Alinha o texto à esquerda */
+    border-bottom: 2px solid transparent; /* Borda invisível inicialmente */
+    transition: border-color 0.3s;  /* Suaviza a transição da borda */
+}
+
+/* Efeito de hover no texto */
+#detalhesbutton:hover #detalhesh4 {
+    color: #007BFF;                  /* Cor do texto no hover */
+    text-decoration: underline;       /* Sublinha o texto */
+}
+#detalhes{
+    text-align: center;
+        margin-top: 150px;
+}
+    
+#centralhr {
+    border: none;
+    background-color: blueviolet;
+    margin: 0px;
+    padding: 2px;
+    height: 2px;
+    position: fixed;
+    top: 0;  /* Coloca o hr no topo da página */
+    left: 0;  /* Faz com que o hr ocupe toda a largura da página */
+    width: 100%;  /* A largura será 100% da tela */
+    z-index: 10;  /* Coloca o hr acima de outros elementos */
+}
+#homediv, #h1homediv{
+    text-align: left;
+    margin-top: -19px;
+    padding: 0px;
+    font-family: "Roboto", sans-serif;
+    position: fixed;
+}
+#CENTRALDIV {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    position: absolute; /* Coloca o conteúdo no topo da página */
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%); /* Centraliza o conteúdo horizontalmente */
+}
+
+#blackline1, #blackline2 {
+    border: none;
+    height: 2px;
+    background-color: rgb(0, 17, 255); /* Cor azul para o hr */
+}
+
+#h1centraldiv {
+    font-size: 32px;
+    margin: 0;
+    padding: 0;
+}
+
+#imgpaste {
+    text-align: center;
+    margin: 0PX;
+}
+#heximg{
+    
+    max-width: 300px;
+    max-height: 300px;
+}
+
+#rightseta2 {
+    position: absolute; /* A imagem será posicionada de forma absoluta */
+    top: 30%;  /* A imagem estará no topo da tela */
+    left: 70%;  /* Ajuste a posição da imagem (não coloque um valor muito grande) */
+    max-width: 50%;
+    max-height: 50%;
+ 
+     /* A altura se ajusta automaticamente para manter a proporção */
+    object-fit: contain; /* Mantém a proporção da imagem sem distorcê-la */
+  
+}
