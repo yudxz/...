@@ -11,6 +11,8 @@ html{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    min-height: 100vh; /* garante altura mínima da viewport */
+    width: 100%;
  
 }
 #profile {
