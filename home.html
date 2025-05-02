@@ -18,7 +18,7 @@
             <button id="textoBotao">Quem é Chagas?</button>
         </h3>
         <h4 id="Revision">
-            <!-- Botão com a classe link1 agora redireciona -->
+           
             <button id="link1" class="link1">
                 <a href="./folder.html"></a>
                 Materiais de revisão.
@@ -30,115 +30,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <style>
-        /* Tela de bloqueio com blur intenso */
-        #overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            background: rgba(0, 0, 0, 0.6);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            z-index: 9999;
-        }
-
-        /* Neve */
-        .snowflake {
-            position: fixed;
-            top: -10px;
-            background: white;
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            opacity: 0.8;
-            pointer-events: none;
-            animation: fall linear infinite;
-        }
-
-        @keyframes fall {
-            to {
-                transform: translateY(100vh);
-            }
-        }
-
-        /* Botão com aparência de texto */
-        #textoBotao {
-            background: none;
-            border: none;
-            font-size: 18px;
-            font-family: 'Barlow', sans-serif;
-            color: white;
-            cursor: pointer;
-            text-decoration: underline;
-        }
-
-        #textoBotao:hover {
-            opacity: 0.7;
-        }
-
-        /* Estilo para o efeito de digitação */
-        .typing-effect::after {
-            content: "|";
-            display: inline-block;
-            animation: blink 0.7s infinite;
-        }
-
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
-
-        /* Estilo da contagem regressiva */
-        #contador {
-            font-size: 30px;
-            color: white;
-            font-family: 'Barlow', sans-serif;
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        /* Animação de piscar */
-        @keyframes piscar {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0;
-            }
-        }
-
-        /* Aplica o efeito de piscar no botão "Materiais de revisão" */
-        #link1 {
-            font-size: 18px;
-            font-family: 'Barlow', sans-serif;
-        
-            cursor: pointer;
-            text-decoration: underline;
-            animation: piscar 1s infinite; /* Animação de piscar */
-        }
-
-        /* Para a animação de piscar quando o mouse está sobre o botão */
-        #link1:hover {
-            animation: none; /* Remove a animação ao passar o mouse */
-            opacity: 1; /* Garante que o texto esteja completamente visível */
-        }
-    </style>
 </head>
 <body>
 
-    <!-- Tela de bloqueio -->
+    
     <div id="overlay">Clique em qualquer lugar para continuar</div>
 
-    <!-- Contagem regressiva -->
+  
     <div id="contador" style="display: none;">3</div>
 
     <script>
@@ -172,12 +70,12 @@
             document.getElementById("overlay").style.display = "none";
             tocarLoop();
             criarNeve();
-            iniciarContagemRegressiva(); // Inicia a contagem após o clique
+            iniciarContagemRegressiva(); 
         }, { once: true });
 
         function digitarTexto(texto, elemento) {
             let i = 0;
-            elemento.textContent = ""; // Limpa o conteúdo antes de começar
+            elemento.textContent = ""; 
             elemento.style.display = "block";
             elemento.classList.add("typing-effect");
 
@@ -197,41 +95,41 @@
             let botao = this;
             let novoTexto = "Prazer, sou um autodidata que passou em 20º lugar nos correios, fiquei no CR para a prova da caixa e estou disponibilizando gratuitamente meu material de revisão, bem vindos.";
 
-            // Cria um novo elemento <p> para substituir o botão
+           
             let novoElemento = document.createElement("p");
             novoElemento.style.fontSize = "18px";
             novoElemento.style.fontFamily = "'Barlow', sans-serif";
             novoElemento.style.color = "white";
 
-            // Substitui o botão pelo novo parágrafo
+           
             botao.parentNode.replaceChild(novoElemento, botao);
 
-            // Aplica o efeito de digitação
+         
             digitarTexto(novoTexto, novoElemento);
         });
 
-        // Função para redirecionar ao clicar no botão "link1"
+        
         document.getElementById("link1").addEventListener("click", function() {
-            window.location.href = './folder.html'; // Redireciona para o arquivo desejado
+            window.location.href = './folder.html'; 
         });
 
-        // Função para iniciar a contagem regressiva após o clique
+       
         function iniciarContagemRegressiva() {
-            let contador = 3; // tempo inicial
+            let contador = 3; 
             let contadorDisplay = document.getElementById("contador");
 
-            // Torna o contador visível
+          
             contadorDisplay.style.display = "block";
 
             let intervalo = setInterval(() => {
-                contador--; // decrementa o tempo
-                contadorDisplay.textContent = contador; // atualiza o contador na tela
+                contador--; 
+                contadorDisplay.textContent = contador; 
 
                 if (contador <= 0) {
-                    clearInterval(intervalo); // limpa o intervalo quando chegar a 0
-                    document.getElementById("textoBotao").click(); // ativa o botão automaticamente
+                    clearInterval(intervalo); 
+                    document.getElementById("textoBotao").click(); 
                 }
-            }, 1000); // a cada 1 segundo
+            }, 1000); 
         }
     </script>
 

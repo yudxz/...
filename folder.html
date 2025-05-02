@@ -11,27 +11,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Tela de blur e mensagem de clique -->
+ 
     <div id="blur-overlay">
         <div id="message"><h1 id="clickhere">Clique para continuar </h1></div>
     </div>
 
-    <!-- Adicionando o áudio de fundo -->
+   
     <audio id="background-audio" loop>
         <source src="kudasai.mp3" type="audio/mpeg">
         Seu navegador não suporta a tag de áudio.
     </audio>
-    
-    <!-- Contador de volume -->
+ 
     <div id="volume-counter">
         <h2 id="margin0">Volume: 10%</h2>
     </div>
 
     <hr id="centralhr">
 
-    <!-- Botão HOME (corrigido) -->
+    
     <div id="homediv">
-        <!-- Transformando o link em um botão -->
+      
         <a href="./home.html" id="home-button">
             <h1 id="h1homediv">HOME</h1>
         </a>
@@ -45,22 +44,22 @@
         <hr id="blackline2">
     </div>
 
-    <!-- Botão de detalhes -->
+    
     <div id="detalhes">
         <button id="detalhesbutton" onclick="mostrarDetalhes()">
             <h2 id="detalhesh4"> Detalhes</h2>
         </button>
     </div>
 
-    <!-- Áudio de digitação -->
+    
     <audio src="computer-keyboard-typing-290582.mp3" id="typing"></audio>
 
-    <!-- Imagem da pasta -->
+    
     <div id="imgpaste">
         <hr id="blackline1">
     
-        <!-- Link para download do arquivo -->
-        <a href="./revisão.rar" download>
+        
+        <a href="./Revisões.rar" download>
             <img src="pasta-aberta.png" alt="" id="heximg">
         </a>
     
@@ -68,11 +67,11 @@
     </div>
 
     <script>
-        // Função que é chamada ao clicar no botão de detalhes
+        
         function mostrarDetalhes() {
             const texto = "Esse arquivo está compactado e os materiais de revisão estão em docx, \n portanto você vai precisar de um leitor de docx, ou o Microsoft Word para executar os materiais de revisão.";
-            let index = 0; // Índice para rastrear qual letra deve ser exibida
-            const detalhesDiv = document.getElementById("detalhes"); // Obtém a div onde o botão "Detalhes" está
+            let index = 0; 
+            const detalhesDiv = document.getElementById("detalhes"); 
             
             detalhesDiv.innerHTML = '<h2 class="detalhesh4"></h2>';
 
@@ -112,7 +111,7 @@
             }, duration);
         }
 
-        // Variáveis do áudio de fundo
+
         const audio = document.getElementById("background-audio");
         let volumeLevel = 0.1;
         let isPlaying = false;

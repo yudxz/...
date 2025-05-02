@@ -1,32 +1,31 @@
 html, body {
     margin: 0;
     padding: 0;
-    height: 100%; /* Garantir que o body ocupe toda a altura da tela */
- 
+    height: 100%; 
+
 
 }
 
 html {
 background-image: url(./deo182h-4d8f64bf-0b0c-4f9b-8d13-a57c8d144ce1.gif);
-background-position: absolute;  
-font-family: "Roboto", sans-serif;
+    font-family: "Roboto", sans-serif;
     color: white;
     margin: 0;
     padding: 0;
-    height: 100%; /* Garante que o html ocupe toda a altura da página */
+    height: 100%;
 }
 #blur-overlay {
-    position: fixed; /* Fixa o overlay na tela */
+    position: fixed; 
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: blue; /* Fundo semi-transparente */
-    backdrop-filter: blur(10px); /* Aplica o blur */
+    background: blue; 
+    backdrop-filter: blur(10px); 
     display: flex;
-    justify-content: center; /* Centraliza a mensagem */
-    align-items: center; /* Centraliza a mensagem */
-    z-index: 1000; /* Garante que fique acima de outros conteúdos */
+    justify-content: center; 
+    align-items: center;
+    z-index: 1000; 
     background: none;
 }
 
@@ -44,54 +43,43 @@ font-family: "Roboto", sans-serif;
    text-align: right;
   
 }
-/* Estilizando o botão */
+
 #detalhesbutton {
-    background: none;               /* Sem fundo */
-    border: none;                   /* Sem borda */
-    padding: 0;                     /* Sem padding */
-    cursor: pointer;               /* Cursor de clique */
-    font-family: inherit;           /* Herda a fonte do pai */
-    display: inline-block;          /* Exibe como bloco em linha */
-    text-align: left;               /* Alinha o texto à esquerda */
-    border-bottom: 2px solid transparent; /* Borda invisível inicialmente */
-    transition: border-color 0.3s;  /* Suaviza a transição da borda */
+    background: none;              
+    border: none;                 
+    padding: 0;                     
+    cursor: pointer;              
+    font-family: inherit;           
+    display: inline-block;         
+    text-align: left;               
+    border-bottom: 2px solid transparent; 
+    transition: border-color 0.3s;  
 }
 
-/* Estilos para o texto dentro do botão */
+
 #detalhesh4 {
-    margin: 0;                      /* Remove a margem do <h4> */
-    font-size: 30px;                /* Tamanho da fonte desejado */
-    color: white;                    /* Cor do texto */
-    font-weight: bold;              /* Texto em negrito */
-    text-decoration: none;          /* Remove o sublinhado do texto */
+    margin: 0;                     
+    font-size: 30px;               
+    color: white;                
+    font-weight: bold;           
+    text-decoration: none;       
 }
 
 
-/* Efeito de hover para o botão */
+
 
 #buttondhomediv:hover #h1homediv {
-
-    color: #007BFF;                  /* Cor do texto no hover */
-    text-decoration: underline;       /* Sublinha o texto */;
+    padding: 0;
+    color: white;              
+    text-decoration: underline;       
 }
 #buttondhomediv{
-    margin: 0;
     color: white;
-    background: none;               /* Sem fundo */
-    border: none;                   /* Sem borda */
-    padding: 0;                     /* Sem padding */
-    cursor: pointer;               /* Cursor de clique */
-    font-family: inherit;           /* Herda a fonte do pai */
-    display: inline-block;          /* Exibe como bloco em linha */
-    text-align: left;               /* Alinha o texto à esquerda */
-    border-bottom: 2px solid transparent; /* Borda invisível inicialmente */
-    transition: border-color 0.3s;  /* Suaviza a transição da borda */
 }
 
-/* Efeito de hover no texto */
 #detalhesbutton:hover #detalhesh4 {
-    color: #007BFF;                  /* Cor do texto no hover */
-    text-decoration: underline;       /* Sublinha o texto */
+    color: #007BFF;                  
+    text-decoration: underline;       
 }
 #detalhes{
     text-align: center;
@@ -105,10 +93,10 @@ font-family: "Roboto", sans-serif;
     padding: 2px;
     height: 2px;
     position: fixed;
-    top: 0;  /* Coloca o hr no topo da página */
-    left: 0;  /* Faz com que o hr ocupe toda a largura da página */
-    width: 100%;  /* A largura será 100% da tela */
-    z-index: 10;  /* Coloca o hr acima de outros elementos */
+    top: 0;  
+    left: 0;  
+    width: 100%;  
+    z-index: 10;  
 }
 #homediv, #h1homediv{
     text-align: left;
@@ -121,16 +109,16 @@ font-family: "Roboto", sans-serif;
     text-align: center;
     padding: 0;
     margin: 0;
-    position: absolute; /* Coloca o conteúdo no topo da página */
+    position: absolute; 
     top: 0;
     left: 50%;
-    transform: translateX(-50%); /* Centraliza o conteúdo horizontalmente */
+    transform: translateX(-50%); 
 }
 
 #blackline1, #blackline2 {
     border: none;
     height: 2px;
-    background-color: rgb(0, 17, 255); /* Cor azul para o hr */
+    background-color: rgb(0, 17, 255); 
 }
 
 #h1centraldiv {
@@ -150,13 +138,152 @@ font-family: "Roboto", sans-serif;
 }
 
 #rightseta2 {
-    position: absolute; /* A imagem será posicionada de forma absoluta */
-    top: 30%;  /* A imagem estará no topo da tela */
-    left: 70%;  /* Ajuste a posição da imagem (não coloque um valor muito grande) */
+    position: absolute;
+    top: 30%;  
+    left: 70%;  
     max-width: 50%;
     max-height: 50%;
  
-     /* A altura se ajusta automaticamente para manter a proporção */
-    object-fit: contain; /* Mantém a proporção da imagem sem distorcê-la */
+
+    object-fit: contain; 
   
+}
+@media (max-width: 768px) {
+    #h1centraldiv {
+        font-size: 24px;
+    }
+
+    #heximg {
+        max-width: 80%;
+        height: auto;
+    }
+
+    #detalhesh4 {
+        font-size: 20px;
+    }
+
+    #CENTRALDIV {
+        top: 60px;
+        width: 90%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #homediv, #h1homediv {
+        font-size: 16px;
+        top: 10px;
+        left: 10px;
+        position: absolute;
+    }
+
+    #volume-counter h2 {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    #detalhes {
+        margin-top: 80px;
+        padding: 10px;
+    }
+
+    #message h1 {
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    #rightseta2 {
+        display: none; 
+    }
+}
+
+
+@media (max-width: 480px) {
+    #h1centraldiv {
+        font-size: 18px;
+    }
+
+    #heximg {
+        max-width: 90%;
+    }
+
+    #detalhesh4 {
+        font-size: 16px;
+    }
+
+    #volume-counter h2 {
+        font-size: 12px;
+    }
+
+    #homediv, #h1homediv {
+        font-size: 14px;
+    }
+}
+
+#CENTRALDIV {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+}
+
+
+#imgpaste {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#detalhes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+@media (max-width: 768px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #CENTRALDIV {
+        width: 90%;
+        padding: 10px;
+        position: relative;
+        top: 20px;
+    }
+
+    #imgpaste {
+        flex-direction: column;
+        align-items: center;
+        margin: 20px 0;
+    }
+
+    #heximg {
+        max-width: 80%;
+        height: auto;
+    }
+
+    #homediv, #h1homediv {
+        position: relative;
+        font-size: 16px;
+        top: 0;
+        margin: 10px 0;
+    }
+
+    #detalhes {
+        margin-top: 40px;
+    }
+
+    #volume-counter h2 {
+        font-size: 14px;
+        text-align: center;
+    }
 }
